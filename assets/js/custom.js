@@ -24,4 +24,13 @@ jQuery(function(){
     //Open media model
     mediaUploader.open();
   });
+
+  //On Deactivate event
+  jQuery("#deactivate-student-management-system").on("click", function(event){
+    event.preventDefault();
+    var booleanValue = confirm("Are you sure want to deactivate 'Student Management System'?");
+    if(booleanValue){
+      window.location.href = jQuery(this).attr("href");
+    }
+  });
 });

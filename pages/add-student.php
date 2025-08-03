@@ -77,7 +77,11 @@ $qsaction = $_GET['action'];
                 placeholder="Enter Name" 
                 <?php if ($qsaction == "view") {
                     echo "readonly = 'readonly'";}?>
-                required>
+                <?php 
+                    if(!empty(get_option('sms_name_validation'))){ echo "required"; } 
+                ?>
+                
+                >
          </div>
          <!-- Email -->
          <div class="form-group">
@@ -91,17 +95,24 @@ $qsaction = $_GET['action'];
                 placeholder="Enter email" 
                 <?php if ($qsaction == "view") {
                     echo "readonly = 'readonly'";}?>
-                required>
+                <?php 
+                    if(!empty(get_option('sms_email_validation'))){ echo "required"; } 
+                ?>
+                >
          </div>
          <!-- Gender -->
          <div class="form-group">
-            <label for="gender">Email</label>
+            <label for="gender">Gender</label>
             <select 
                 name="gender" 
                 <?php if($qsaction == "view"){ echo "disabled = true";} ?>
                 id="gender"
+                <?php 
+                    if(!empty(get_option('sms_gender_validation'))){ echo "required"; } 
+                ?>
+
                 >
-                <option value="select">Select</option>
+                <option value="">Select Gender</option>
                 <option value="Male" 
                     <?php if(($qsaction == 'view' || $qsaction == 'edit') && $student_detail['gender'] == 'Male')
                             { echo 'selected';} ?>
@@ -129,7 +140,10 @@ $qsaction = $_GET['action'];
                 placeholder="Enter phone number"
                 <?php if ($qsaction == "view") {
                     echo "readonly = 'readonly'";}?> 
-                required>
+                <?php 
+                    if(!empty(get_option('sms_phoneNo_validation'))){ echo "required"; } 
+                ?>
+                >
          </div>
          <!-- upload button -->
           <input type="text" name="profile_url" id="profile_url" readonly >

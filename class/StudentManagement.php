@@ -34,18 +34,38 @@ class StudentManagement
     }
 
     public function sms_name_field_handle(){
-        echo '<input type="checkbox" name="sms_name_validation" value="1" />';
+        $saved_option = get_option('sms_name_validation');
+        $checked = "";
+        if($saved_option){
+            $checked = "checked";
+        }
+        echo '<input type="checkbox" name="sms_name_validation" value="1"' .$checked.'/>';
     }
     public function sms_email_field_handle(){
-        echo '<input type="checkbox" name="sms_email_validation" value="1" />';
+        $saved_option = get_option('sms_email_validation');
+        $checked = "";
+        if($saved_option){
+            $checked = "checked";
+        }
+        echo '<input type="checkbox" name="sms_email_validation" value="1" ' .$checked.'/>';
     }
 
     public function sms_gender_field_handle(){
-        echo '<input type="checkbox" name="sms_gender_validation" value="1" />';
+        $saved_option = get_option('sms_gender_validation');
+        $checked = "";
+        if($saved_option){
+            $checked = "checked";
+        }
+        echo '<input type="checkbox" name="sms_gender_validation" value="1" ' .$checked.'/>';
     }
 
     public function sms_phoneNo_field_handle(){
-        echo '<input type="checkbox" name="sms_phoneNo_validation" value="1" />';
+        $saved_option = get_option('sms_phoneNo_validation');
+        $checked = "";
+        if($saved_option){
+            $checked = "checked";
+        }
+        echo '<input type="checkbox" name="sms_phoneNo_validation" value="1"' .$checked.'/>';
     }
 
     //To add plugin menus and submenus
@@ -58,6 +78,7 @@ class StudentManagement
 
         //Settings page submenu inside settings menu
         add_options_page("SMS Plugin Settings", "SMS Settings", "manage_options", "sms-plugin-settings", array($this, "sms_plugin_action_handle"));
+        add_submenu_page("student-system", "SMS Settings", "Settings", "manage_options", "sms-plugin-settings", array($this, "sms_plugin_action_handle"));
     }
 
     //SMS plugin settings page action handler
