@@ -32,18 +32,14 @@ $qsaction = $_GET['action'];
                 }
                 ?>
     <!-- end of display message -->
-    <!-- Add student for  -->
+    <!-- Add student for  --> 
+     
+                    
     <form 
         class=" add-student-form" 
-        action="<?php
-                    if ($action == "edit") {
-                        echo $_SERVER['PHP_SELF'] . "?page=student-system&action=update";
-                    } else {
-                        echo $_SERVER['PHP_SELF'] . "?page=student-system&action=add";
-                    } ?>"
-        
-        method="post" 
-        id="sms-form-add-student">
+        action="javascript:void(0);"
+        id="frm_sms_form"
+        method="post">
         <!-- nonce hidden filed -->
         <div class="form-group">
                         <input
@@ -152,9 +148,9 @@ $qsaction = $_GET['action'];
                     if ($qsaction == "view") {
                         //no button to view
                     } elseif ($qsaction == "edit") { ?>
-                        <button type="submit" class="btn btn-success" name="btn-update-student">Update</button>
+                        
                     <?php } else { ?>
-                        <button type="submit" class="btn btn-success" name="btn-add-student">Submit</button>
+                        <button type="submit" id="btn_sms_form" name="btn-add-student">Submit</button>
                     <?php } ?>
 
          

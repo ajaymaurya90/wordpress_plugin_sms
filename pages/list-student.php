@@ -27,31 +27,7 @@
                 <th>Action</th>
             </thead>
             <tbody>
-                <?php
-                if(count($students) > 0){
-                    foreach ($students as $student){
-                        ?>
-                        <tr>
-                            <td><?php echo $student['id'] ?></td>
-                            <td><img src="<?php echo $student['profile_img']; ?>" style="height:60px"></td>
-                            <td><?php echo $student['name'] ?></td>
-                            <td><?php echo $student['email'] ?></td>
-                            <td><?php echo $student['gender'] ?></td>
-                            <td><?php echo $student['phone_no'] ?></td>
-                            <td><?php echo $student['created_at'] ?></td>
-                            <td>
-                                <a href="<?php echo $_SERVER['PHP_SELF'] . '?page=student-system&action=view&id='.$student["id"]; ?>" class="btn-view">View</a>
-                                <a href="<?php echo $_SERVER['PHP_SELF'] . '?page=student-system&action=edit&id='.$student["id"]; ?>" class="btn-edit">Edit</a>
-                                <a href="<?php echo $_SERVER['PHP_SELF'] . '?page=list-student&action=delete&id='.$student["id"]; ?>" class="btn-delete">Delete</a>
-                            </td>
-                </tr>
-
-                        <?php
-
-                    }
-                    
-                }
-                ?>
+                
                 
             </tbody>
 
